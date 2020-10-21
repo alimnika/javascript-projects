@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    .container{
+        /* border: 1px solid red; */
+        display:none;
+        width:300px;
+        height:300px;
+        position:absolute;
+        left:40%;
+        top:30%;
+        border-radius:10px;
+        padding:10px;
+        box-shadow:2px 2px 4px 4px;
+        background-color: white;
+      }
+      button{
+        padding:10px;
+        border:none;
+        background-color:lightblue;
+        outline:none;
+      }
+    #head{
+      display:flex;
+      justify-content:space-between;
+      border-bottom:2px solid black;
+      background-color:yellow;
+
+    }
+
+    #head h4 {
+      margin-top:0;
+
+    }
+    #head p{
+      margin-top:0;
+      border:1px solid red;
+      padding:5px;
+    }
+    button:hover,#head,p:hover {
+      cursor:pointer;
+    }
+    </style>
+  </head>
+  <body>
+    <button id='btn' type="button" name="button">Submit</button>
+    <div class="container">
+      <div id="head">
+        <h4>MODAL JS</h4>
+        <p id='close_button'>x</p>
+      </div>
+
+      <p>Modals are built with HTML, CSS, and JavaScript. They’re positioned over everything else in the document and remove scroll from the <body> so that modal content scrolls instead.
+Clicking on the modal “backdrop” will automatically close the modal.
+Bootstrap only supports one modal window at a time. Nested modals aren’t supported as we believe them to be poor user experiences.</p>
+
+    </div>
+   <script type="text/javascript">
+      var submit=document.getElementById("btn")
+      var container=document.querySelector('.container')
+
+      submit.addEventListener('click',function(){
+        container.style.display='block';
+        document.body.style.background="lightcoral";
+
+      })
+      var close=document.querySelector("#close_button")
+      close.addEventListener('click',function(){
+        container.style.display='none';
+        document.body.style.background="lightcoral";
+      })
+
+
+    </script>
+  </body>
+</html>
