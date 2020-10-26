@@ -11,6 +11,7 @@
       <h2>Awesome To DO List</h2>
       <input id='input' type="text" name="" value="" placeholder='what do you need to do today?'>
       <button id='btn' class="btns" name="button">Add</button>
+      <p id='notification'></p>
     <ul class="all-tasks">
       <!-- <li><input type="checkbox">shopping <i class="fa fa-trash"> </i> </li>
       <li><input type="checkbox">swimming <i class="fa fa-trash"> </i> </li> -->
@@ -30,17 +31,56 @@
     var inputToDo=document.querySelector('input');
     var btnAdd=document.querySelector('btn');
     var bringBack=document.querySelector('#bringBack');
-
     var ulTasks=document.querySelector(".all-tasks");
+    var warning=document.querySelector("#notification");
+
+    listOfTasks=[]
 
     wrapper.addEventListener('click',function(event){
-      if (event.target.getAttribute('id'==='btn')){
-        console.log('add button clicked')
-      }
-      if (event.target.getAttribute('id'==='bringBack'))
-      console.log('bringBack button clicked')
-    })
+      if (event.target.getAttribute('id')==='btn'){
 
+        // console.log('add button clicked')
+
+        if(!(inputToDo.value.trim())){
+          warning.innerHTML='Sorry input space can not be empty'
+          inputToDo.value=""
+          return
+        }
+        console.log('Sorry can not be empty')
+        if(listOfTasks.includes(inputToDo.value)){
+          warning.innerHTML="SORRY THIS TASKS ALREADY EXIST"
+        }
+        else{
+            warning.innerHTML=""
+          // console.log('task does not exist')
+          listOfTasks.push(inputToDo.value)
+          createElements(inputToDo)
+        }
+
+        inputToDo.value=""
+
+      }
+      if (event.target.getAttribute('id')==='bringBack'){
+        console.log('bringBack button clicked')
+      }
+
+    })
+function createElements(x){
+  var li=document.createElement('li') //li created
+  var inputCheck=document.createElement('input')
+  inputCheck.type='checkbox'
+
+
+  li.appendChild(inputCheck)
+
+   li.innerHTML=li.innerHTML+x.value.trim()
+
+  var icon=document.createElement('i')
+  icon.setAttribute('class','fa fa-trash');
+  li.appendChild(icon)
+
+  ulTasks.appendChild(li)
+}
 
     </script>
 

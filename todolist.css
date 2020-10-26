@@ -45,3 +45,10 @@ h2{
 #bringBack{
   margin-left: 65%;
 }
+#notification{
+  position: absolute;
+  left:20%;
+  font-size: 2rem;
+  color:red;
+  font-weight: bold;
+}
