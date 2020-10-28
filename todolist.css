@@ -1,4 +1,8 @@
+body{
+  background-color: bisque;
+}
 #wrapper{
+  background-color: rgb(231, 216, 216);
   width: 80%;
   margin 50px auto;
   border: 1px solid red;

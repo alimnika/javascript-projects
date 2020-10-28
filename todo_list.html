@@ -40,28 +40,44 @@
       if (event.target.getAttribute('id')==='btn'){
 
         // console.log('add button clicked')
-
+// this section is for checking if input is empty or includes white space
         if(!(inputToDo.value.trim())){
-          warning.innerHTML='Sorry input space can not be empty'
+          alert('Sorry input space can not be empty')
           inputToDo.value=""
           return
         }
+        // this section is for validating if task already exists or not
         console.log('Sorry can not be empty')
-        if(listOfTasks.includes(inputToDo.value)){
-          warning.innerHTML="SORRY THIS TASKS ALREADY EXIST"
+        if(listOfTasks.includes(inputToDo.value.toLowerCase())){
+          alert('This task  already exist')
+          // warning.innerHTML="SORRY THIS TASKS ALREADY EXIST"
         }
+        // otherwise create task
         else{
             warning.innerHTML=""
           // console.log('task does not exist')
-          listOfTasks.push(inputToDo.value)
+          listOfTasks.push(inputToDo.value.toLowerCase())
           createElements(inputToDo)
         }
 
         inputToDo.value=""
 
       }
-      if (event.target.getAttribute('id')==='bringBack'){
-        console.log('bringBack button clicked')
+      // if (event.target.getAttribute('id')==='bringBack'){
+      //   console.log('bringBack button clicked')
+      // }
+      if(event.target.getAttribute('type')==='checkbox'){
+        event.target.parentElement.classList.toggle('toggle')
+      }
+      if(event.target.getAttribute('class')==='fa fa-trash'){
+        // console.log('trash')
+        const x=listOfTasks.indexOf(event.target.parentElement.textContent)
+        delete listOfTasks[x]
+        event.target.parentElement.remove()
+
+        // console.log(x)
+
+
       }
 
     })
